@@ -14,7 +14,35 @@ public class PracticaGIT {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        System.out.println("Hola mundo");
     }
     
+}
+
+public class Productos{
+    int id_producto;
+    String nombre;
+    double precio;
+    String marca;
+    String categoria;
+
+
+
+}
+
+
+public class Clientes{
+    int id_cliente;
+    String nombre;
+    String pedidos;
+
+    
+}
+
+
+public class Pedidos{
+    int id_pedido;
+    String fecha;
+    String productos;
+    String cliente;
 }
