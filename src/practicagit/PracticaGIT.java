@@ -3,7 +3,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package practicagit;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.sql.PreparedStatement;
 /**
  *
  * @author santi
@@ -14,6 +20,11 @@ public class PracticaGIT {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        PracticaGIT objProducto = new PracticaGIT();
+        objProducto.ConexionDB();
+        
+      
         Clientes cliente1 = new Clientes();
         cliente1.id_cliente=1;
         cliente1.nombre="Antua";
@@ -119,11 +130,38 @@ public class PracticaGIT {
     PedidoE3.id_pedido=3;
     PedidoE3.fecha="2026-01-03";
         
-      
-        
-        
+     
+ 
         // TODO code application logic here
     }
+    
+    public void ConexionDB(){
+        String url="jdbc:postgresql://localhost:5432/Practica11";
+        String usuario="postgres";
+        String password="evelina";
+        Connection objConnection=null;
+        try{
+           objConnection=DriverManager.getConnection(url, usuario, password);
+           if(objConnection != null){
+               System.out.println("si se pudo conectar");
+               
+               Productos pE = new Productos ();
+               pE.insertar(objConnection);
+                
+           }
+        }catch(SQLException e){
+            System.err.println("no se pudo");
+            System.err.println(e.toString());
+        } 
+        
+        
+    }
+    
+    
+    
+    
+    
+    
     
 }
        
