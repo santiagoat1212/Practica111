@@ -1,6 +1,7 @@
 package practicagit;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 /**
  *
@@ -12,13 +13,15 @@ public class Clientes {
     public int pedidos;
 
 
-    public void UPDATE(Connection objConnection) {
+    public void UPDATE(Connection objConnection, int id_cliente, String name, String first_name, String second_name) {
         try {
             String query = "update clientes set nombre = ?, pedidos = ? where id_cliente = ?";
             PreparedStatement objPS = objConnection.prepareStatement(query);
-            objPS.setString(1, nombre);
-            objPS.setInt(2, pedidos);
-            objPS.setInt(3, id_cliente);
+            objPS.setInt(1, id_cliente);
+            objPS.setString(2, name);
+            objPS.setString(3, first_name);
+            objPS.setString(4, second_name);
+
             int filasActualizadas = objPS.executeUpdate();
             if (filasActualizadas == 0) {
                 System.out.println("No se actualizó nada en clientes");

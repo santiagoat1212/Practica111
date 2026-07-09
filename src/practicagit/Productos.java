@@ -17,7 +17,7 @@ public class Productos {
 
     
 
-    public void DELETE(Connection objConnection) {
+    public void DELETE(Connection objConnection, int id_Productos) {
         try {
             String query = "delete from productos where id_producto = ?";
             PreparedStatement objPS = objConnection.prepareStatement(query);
@@ -38,5 +38,5 @@ public class Productos {
     
         
        
-}
+
 

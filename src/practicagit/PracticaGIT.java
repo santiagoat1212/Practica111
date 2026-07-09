@@ -7,9 +7,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+
 
 /**
  *
@@ -23,9 +21,9 @@ public class PracticaGIT {
     public static void main(String[] args) {
         PracticaGIT practica = new PracticaGIT();
         practica.Funcion();
-    }
+    
 
-    private void crearEjemplos() {
+    
         Clientes cliente1 = new Clientes();
         cliente1.id_cliente = 1;
         cliente1.nombre = "Antua";
@@ -144,10 +142,10 @@ public class PracticaGIT {
                 
 
                 Clientes cliente = new Clientes();
-                clienteE.modificar(objConnection, 1, "Goku", "Legana", "Atodos");
+                cliente.UPDATE(objConnection, 1, "Goku", "Legana", "Atodos");
 
                 Productos prodE = new Productos();
-                prodE.eliminar(objConnection, 1);
+                prodE.DELETE(objConnection, 1);
             }
         } catch (SQLException e) {
             System.err.println("no se pudo");
