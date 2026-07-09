@@ -18,7 +18,9 @@ public class Pedidos {
     
     
     public void INSERT (java.sql.Connection objConnection){
-        
+
+        PracticaGIT objPracticaGIT = new PracticaGIT();
+        objPracticaGIT.Funcion();
                 
      try{
     String query="insert into Pedidos (id_pedido, id_cliente, id_producto) values (?, ?, ?)";

@@ -11,6 +11,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.sql.PreparedStatement;
 
+
 /**
  *
  * @author santi
@@ -21,10 +22,9 @@ public class PracticaGIT {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
-        PracticaGIT PracticaA = new PracticaGIT();
-        PracticaA.Funcion();
 
+        PracticaGIT objPracticaGIT = new PracticaGIT();
+        objPracticaGIT.Funcion();
 
         Clientes cliente1 = new Clientes();
         cliente1.id_cliente=1;
@@ -131,9 +131,8 @@ public class PracticaGIT {
     PedidoE3.id_pedido=3;
     PedidoE3.fecha="2026-01-03";
         
-      
-        
-        
+     
+ 
         // TODO code application logic here
     }
     public void Funcion(){
@@ -145,9 +144,14 @@ public class PracticaGIT {
            objConnection=DriverManager.getConnection(url, usuario, password);
            if(objConnection != null){
            System.out.println("si se pudo conectar");
-           
-           Pedidos pedi = new Pedidos ();
-           pedi.INSERT(objConnection);   
+
+            Pedidos PedidoA = new Pedidos();
+            PedidoA.INSERT(objConnection);
+            Clientes ClienteE = new Clientes();
+            ClienteE.modificar(objConnection, 1, "Juan", "Perez", "Gomez");
+            Productos prodE = new Productos();
+            prodE.eliminar(objConnection, 1);
+
                
            }
         }catch(SQLException e){
@@ -156,6 +160,7 @@ public class PracticaGIT {
         
             
         }
+    
     
 }
 }
